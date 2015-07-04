@@ -13,7 +13,7 @@ import style from './todoheader.style';
 class TodoHeader extends Component {
 
   render() {
-    const {navigator, todos, toggleMenu} = this.props;
+    const {navigator, todos, headerActions} = this.props;
     const leftTodos = todos.get('list').filter(todo => !todo.completed).size;
 
     const headingMessage = leftTodos
@@ -25,7 +25,7 @@ class TodoHeader extends Component {
 
         <TouchableOpacity
           activeOpacity={0.7}
-          onPress={toggleMenu}>
+          onPress={headerActions.toggleMenu}>
           <Image source={require('image!menu-icon')} style={style.menuLink} />
         </TouchableOpacity>
 
@@ -40,6 +40,7 @@ class TodoHeader extends Component {
 }
 
 TodoHeader.propTypes = {
+  headerActions: React.PropTypes.object.isRequired,
   navigator: React.PropTypes.object.isRequired,
   todos: React.PropTypes.object.isRequired
 };

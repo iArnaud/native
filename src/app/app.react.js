@@ -53,8 +53,7 @@ class App extends Component {
   }
 
   render() {
-    const headerProps = {
-      ...this.state,
+    const headerActions = {
       toggleMenu: this.toggleMenu
     };
 
@@ -69,7 +68,7 @@ class App extends Component {
 
         <Router
           defaultRoute={defaultRoute}
-          headerProps={headerProps}
+          headerActions={headerActions}
           passProps={this.state}
           ref='router'
           routes={routes}

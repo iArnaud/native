@@ -14,13 +14,13 @@ class Header extends Component {
 
   handleBackButtonClick(isMainView) {
     if (isMainView)
-      this.props.toggleMenu();
+      this.props.headerActions.toggleMenu();
     else
       this.props.navigator.pop();
   }
 
   render() {
-    const {navigator, currentRoute} = this.props;
+    const {navigator, headerActions, currentRoute} = this.props;
     const isMainView = navigator.getCurrentRoutes().length === 1;
 
     const backButton = isMainView ?
@@ -51,8 +51,8 @@ class Header extends Component {
 
 Header.propTypes = {
   currentRoute: React.PropTypes.object.isRequired,
-  navigator: React.PropTypes.object.isRequired,
-  toggleMenu: React.PropTypes.func.isRequired
+  headerActions: React.PropTypes.object,
+  navigator: React.PropTypes.object.isRequired
 };
 
 export default Header;
