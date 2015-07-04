@@ -11,10 +11,14 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const route = this._getCurrentRoute();
+    const currentRoute = this._getCurrentRoute();
     const {headerProps, navigator} = this.props;
 
-    return React.createElement(route.navbar, {...headerProps, navigator});
+    return React.createElement(currentRoute.navbar, {
+      ...headerProps,
+      navigator,
+      currentRoute
+    });
   }
 
 }

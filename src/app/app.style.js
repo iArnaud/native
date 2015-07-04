@@ -11,7 +11,8 @@ export const centered = {
 };
 
 export const container = {
-  flex: 1
+  flex: 1,
+  backgroundColor: '#FFFFFF'
 };
 
 export const containerWithNavbar = {

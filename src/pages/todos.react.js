@@ -12,7 +12,7 @@ import {container} from '../app/app.style';
 class Todos extends Component {
 
   render() {
-    const {todos, pendingActions, navigation} = this.props;
+    const {todos, pendingActions} = this.props;
 
     return (
       <View style={container}>
@@ -29,7 +29,6 @@ class Todos extends Component {
 }
 
 Todos.propTypes = {
-  navigation: React.PropTypes.object.isRequired,
   pendingActions: React.PropTypes.instanceOf(immutable.Map).isRequired,
   todos: React.PropTypes.instanceOf(immutable.Map).isRequired
 };

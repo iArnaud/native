@@ -38,7 +38,7 @@ class Router extends React.Component {
   renderScene(route, navigator) {
     var Handler = route.component;
 
-    const navigation = {
+    const router = {
       ...navigator,
       transitionTo: (route) => navigator.push(this.getRoute(route)),
       getRoute: this.getRoute.bind(this),
@@ -47,7 +47,7 @@ class Router extends React.Component {
 
     return (
       <View style={route.style}>
-        <Handler navigation={navigation} {...this.props.passProps} />
+        <Handler router={router} {...this.props.passProps} />
       </View>
     );
   }

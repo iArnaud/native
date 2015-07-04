@@ -19,28 +19,22 @@ class Header extends Component {
       this.props.navigator.pop();
   }
 
-  getCurrentRoute(navigator) {
-    const routes = navigator.getCurrentRoutes();
-    return routes[routes.length - 1];
-  }
-
   render() {
-    const {navigator} = this.props;
+    const {navigator, currentRoute} = this.props;
     const isMainView = navigator.getCurrentRoutes().length === 1;
-    const route = this.getCurrentRoute(navigator);
 
     const backButton = isMainView ?
       <Image source={require('image!menu-icon')} style={style.menuIcon} /> :
       <Text style={style.menuLink}>{msg('buttons.back')}</Text>;
 
     const navbarStyle = [style.container];
-    if (route.hideNavbar)
+    if (currentRoute.hideNavbar)
       navbarStyle.push(style.containerHidden);
 
     return (
       <View style={navbarStyle}>
 
-        {!route.hideBackButton && (
+        {!currentRoute.hideBackButton && (
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={_ => this.handleBackButtonClick(isMainView)}>
@@ -48,7 +42,7 @@ class Header extends Component {
           </TouchableOpacity>
         )}
 
-        <Text style={style.header}>{route.title}</Text>
+        <Text style={style.header}>{currentRoute.title}</Text>
       </View>
     );
   }
@@ -56,6 +50,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  currentRoute: React.PropTypes.object.isRequired,
   navigator: React.PropTypes.object.isRequired,
   toggleMenu: React.PropTypes.func.isRequired
 };

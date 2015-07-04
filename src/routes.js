@@ -1,3 +1,4 @@
+import About from './pages/about.react';
 import Todos from './pages/todos.react';
 import Home from './pages/home.react';
 import Header from './components/header.react';
@@ -11,6 +12,12 @@ export const routes = {
     title: msg('todos.title'),
     navbar: TodoHeader,
     style: containerWithBigNavbar
+  },
+  about: {
+    component: About,
+    title: msg('about.title'),
+    navbar: Header,
+    style: containerWithNavbar
   },
   home: {
     component: Home,
