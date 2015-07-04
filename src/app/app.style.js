@@ -19,6 +19,11 @@ export const containerWithNavbar = {
   marginTop: 64
 };
 
+export const containerWithBigNavbar = {
+  ...container,
+  marginTop: 110
+};
+
 export const paddingBottom = {
   paddingBottom: 64
 };

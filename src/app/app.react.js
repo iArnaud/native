@@ -1,6 +1,5 @@
 import * as state from '../state';
 import Component from '../components/component.react';
-import Header from '../components/header.react';
 import Menu from './menu.react';
 import React from 'react-native';
 import {routes, defaultRoute} from '../routes';
@@ -54,6 +53,11 @@ class App extends Component {
   }
 
   render() {
+    const headerProps = {
+      ...this.state,
+      toggleMenu: this.toggleMenu
+    };
+
     return (
       <SideMenu
         animation='spring'
@@ -65,7 +69,7 @@ class App extends Component {
 
         <Router
           defaultRoute={defaultRoute}
-          navigationBar={<Header menuAction={this.toggleMenu} />}
+          headerProps={headerProps}
           passProps={this.state}
           ref='router'
           routes={routes}

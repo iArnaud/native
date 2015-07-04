@@ -5,8 +5,7 @@ const menuLink = {
   position: 'absolute',
   left: 15,
   top: 34,
-  opacity: 0.9,
-  fontSize: 15
+  opacity: 0.9
 };
 
 export default StyleSheet.create({

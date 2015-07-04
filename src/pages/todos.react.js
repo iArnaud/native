@@ -3,7 +3,6 @@ import immutable from 'immutable';
 import List from '../todos/list.react';
 import NewTodo from '../todos/newtodo.react';
 import React from 'react-native';
-import TodoHeader from '../todos/todoheader.react';
 import {
   View
 } from 'react-native';
@@ -14,14 +13,9 @@ class Todos extends Component {
 
   render() {
     const {todos, pendingActions, navigation} = this.props;
-    const leftTodos = todos.get('list').filter(todo => !todo.completed).size;
 
     return (
       <View style={container}>
-        <TodoHeader
-          leftTodos={leftTodos}
-          navigation={navigation}
-        />
         <NewTodo todo={todos.get('newTodo')} />
         <List
           editables={todos.get('editables')}

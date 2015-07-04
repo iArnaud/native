@@ -1,4 +1,5 @@
 import React from 'react-native';
+import Navbar from './navbar.react';
 import {
   Navigator,
   View
@@ -57,6 +58,7 @@ class Router extends React.Component {
           {...this.props}
           configureScene={this.configureScene}
           initialRoute={this.props.defaultRoute}
+          navigationBar={<Navbar {...this.props}/>}
           ref='navigator'
           renderScene={this.renderScene}
         />
@@ -69,6 +71,7 @@ class Router extends React.Component {
 Router.propTypes = {
   animationType: React.PropTypes.object,
   defaultRoute: React.PropTypes.object.isRequired,
+  headerProps: React.PropTypes.object,
   passProps: React.PropTypes.object,
   routes: React.PropTypes.object.isRequired
 };

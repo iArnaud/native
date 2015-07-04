@@ -14,7 +14,7 @@ class Header extends Component {
 
   handleBackButtonClick(isMainView) {
     if (isMainView)
-      this.props.menuAction();
+      this.props.toggleMenu();
     else
       this.props.navigator.pop();
   }
@@ -56,8 +56,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  menuAction: React.PropTypes.func.isRequired,
-  navigator: React.PropTypes.object.isRequired
+  navigator: React.PropTypes.object.isRequired,
+  toggleMenu: React.PropTypes.func.isRequired
 };
 
 export default Header;
